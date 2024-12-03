@@ -40,6 +40,19 @@ class _QuizPageState extends State<QuizPage> {
 
   List<bool> answers = [false, true, true];*/
 
+  void checkanswer(bool userpickedanswer) {
+    bool correctanswer = quizBrain.getQuestionAns();
+
+    if (userpickedanswer == correctanswer) {
+      print('u got it right');
+    } else {
+      print('u got it wrong');
+    }
+    setState(() {
+      quizBrain.nextquestion();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -76,15 +89,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctanswer = quizBrain.getQuestionAns();
-                if (correctanswer == true) {
-                  print('u got it right');
-                } else {
-                  print('u got it wrong');
-                }
-                setState(() {
-                  quizBrain.nextquestion();
-                });
+                checkanswer(true);
               },
             ),
           ),
@@ -103,15 +108,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctanswer = quizBrain.getQuestionAns();
-                if (correctanswer == false) {
-                  print('u got it right');
-                } else {
-                  print('u got it wrong');
-                }
-                setState(() {
-                  quizBrain.nextquestion();
-                });
+                checkanswer(false);
               },
             ),
           ),
