@@ -48,4 +48,18 @@ class QuizBrain {
   bool getQuestionAns() {
     return _questionbank[_questionnum].questionanswer;
   }
+
+  bool isfinished() {
+    if (_questionnum == _questionbank.length - 1) {
+      print('at the end');
+      return true;
+    } else {
+      print('not at the end');
+      return false;
+    }
+  }
+
+  void reset() {
+    _questionnum = 0;
+  }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
-import 'package:cool_alert/cool_alert.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -30,32 +30,32 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scorekeeper = [];
-  /*List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.'
-  ];
-
-   Question q1 = Question(
-     q: 'You can lead a cow down stairs but not up stairs.', a: false);
-
-  List<bool> answers = [false, true, true];*/
 
   void checkanswer(bool userpickedanswer) {
     bool correctanswer = quizBrain.getQuestionAns();
     setState(() {
-      if (userpickedanswer == correctanswer) {
-        scorekeeper.add(Icon(
-          Icons.check,
-          color: Colors.green,
-        ));
+      if (quizBrain.isfinished() == true) {
+        Alert(
+                context: context,
+                title: "Finished!",
+                desc: "You've reached the end of the quiz.")
+            .show();
+        quizBrain.reset();
+        scorekeeper.clear();
       } else {
-        scorekeeper.add(Icon(
-          Icons.close,
-          color: Colors.red,
-        ));
+        if (userpickedanswer == correctanswer) {
+          scorekeeper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scorekeeper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+        }
       }
-
+      quizBrain.isfinished();
       quizBrain.nextquestion();
     });
   }
