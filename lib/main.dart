@@ -42,13 +42,19 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkanswer(bool userpickedanswer) {
     bool correctanswer = quizBrain.getQuestionAns();
-
-    if (userpickedanswer == correctanswer) {
-      print('u got it right');
-    } else {
-      print('u got it wrong');
-    }
     setState(() {
+      if (userpickedanswer == correctanswer) {
+        scorekeeper.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        scorekeeper.add(Icon(
+          Icons.close,
+          color: Colors.green,
+        ));
+      }
+
       quizBrain.nextquestion();
     });
   }
