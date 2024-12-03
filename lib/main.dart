@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -51,7 +52,7 @@ class _QuizPageState extends State<QuizPage> {
       } else {
         scorekeeper.add(Icon(
           Icons.close,
-          color: Colors.green,
+          color: Colors.red,
         ));
       }
 
