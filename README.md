@@ -1,19 +1,5 @@
 # Quizzler - Flutter Quiz App
 
-## Table of Contents
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Screenshots](#screenshots)
-4. [How It Works](#how-it-works)
-5. [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-6. [File Structure](#file-structure)
-7. [Dependencies](#dependencies)
-8. [Future Improvements](#future-improvements)
-9. [Contributions](#contributions)
-10. [License](#license)
-
 ---
 
 ## Overview
