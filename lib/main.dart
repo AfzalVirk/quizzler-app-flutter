@@ -55,6 +55,7 @@ class _QuizPageState extends State<QuizPage> {
           ));
         }
       }
+
       quizBrain.isfinished();
       quizBrain.nextquestion();
     });
